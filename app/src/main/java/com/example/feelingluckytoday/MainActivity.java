@@ -20,7 +20,9 @@ public class MainActivity extends AppCompatActivity {
         // calling the action bar
         ActionBar actionBar = getSupportActionBar();
         // showing the back button in action bar
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
         ImageButton showImage = findViewById(R.id.imageButton);
         showImage.setOnClickListener(new View.OnClickListener() {

@@ -29,7 +29,9 @@ public class DisplayWebPageActivity extends AppCompatActivity {
         // calling the action bar
         ActionBar actionBar = getSupportActionBar();
         // showing the back button in action bar
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
         WebView browser = findViewById(R.id.searchPage);
         browser.loadUrl(String.valueOf(randomUrl));

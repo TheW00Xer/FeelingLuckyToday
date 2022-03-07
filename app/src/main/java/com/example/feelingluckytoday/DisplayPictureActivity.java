@@ -26,7 +26,9 @@ public class DisplayPictureActivity extends AppCompatActivity {
         // calling the action bar
         ActionBar actionBar = getSupportActionBar();
         // showing the back button in action bar
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
     }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
