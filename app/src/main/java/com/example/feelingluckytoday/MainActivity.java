@@ -1,11 +1,11 @@
 package com.example.feelingluckytoday;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         showImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                openPicture();
             }
         });
 
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         showVideo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                openVideo();
             }
         });
 
@@ -34,9 +34,21 @@ public class MainActivity extends AppCompatActivity {
         showSearchEngine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                openSearch();
             }
         });
 
+    }
+    public void openPicture(){
+        Intent intent = new Intent(this, DisplayPictureActivity.class);
+        startActivity(intent);
+    }
+    public void openVideo(){
+        Intent intent = new Intent(this, DisplayVideoActivity.class);
+        startActivity(intent);
+    }
+    public void openSearch(){
+        Intent intent = new Intent(this, DisplayWebPageActivity.class);
+        startActivity(intent);
     }
 }
