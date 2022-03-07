@@ -2,9 +2,12 @@ package com.example.feelingluckytoday;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -13,6 +16,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // calling the action bar
+        ActionBar actionBar = getSupportActionBar();
+        // showing the back button in action bar
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         ImageButton showImage = findViewById(R.id.imageButton);
         showImage.setOnClickListener(new View.OnClickListener() {
@@ -50,5 +58,13 @@ public class MainActivity extends AppCompatActivity {
     public void openSearch(){
         Intent intent = new Intent(this, DisplayWebPageActivity.class);
         startActivity(intent);
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            this.finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
