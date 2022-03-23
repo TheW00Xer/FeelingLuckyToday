@@ -15,13 +15,13 @@ import java.util.Random;
 
 public class DisplayVideoActivity extends AppCompatActivity {
 
-    int[] videos = {R.raw.surprised_dude, R.raw.busy_monke, R.raw.eating_guine};
-    Random randomUri = new Random();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_video);
+
+        int[] videos = {R.raw.surprised_dude, R.raw.busy_monke, R.raw.eating_guine};
+        Random randomUri = new Random();
 
         // calling the action bar
         ActionBar actionBar = getSupportActionBar();
@@ -32,7 +32,7 @@ public class DisplayVideoActivity extends AppCompatActivity {
 
         MediaController mediaController = new MediaController(this);
         VideoView video = findViewById(R.id.videoView);
-        String uriPath = "android.resource://".concat(getPackageName()).concat("/raw/").concat(String.valueOf(videos[randomUri.nextInt(videos.length)]));
+        String uriPath = "android.resource://" + (getPackageName()) + ("/raw/") + ((videos[randomUri.nextInt(videos.length)]));
         video.setVideoURI(Uri.parse(uriPath));
 
         video.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {

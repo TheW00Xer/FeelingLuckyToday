@@ -24,10 +24,10 @@ public class MainActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        ImageButton showImage = findViewById(R.id.imageButton);
-        showImage.setOnClickListener(new View.OnClickListener() {
+        ImageButton showImage = findViewById(R.id.imageButton); //Defines Image button and finds it by it's View Id
+        showImage.setOnClickListener(new View.OnClickListener() { //Set on click listener for this button
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) { //when user clicks button it will call function "openPicture"
                 openPicture();
             }
         });
@@ -49,23 +49,28 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-    public void openPicture(){
+
+    /**
+     * Function that starts new activity which will open separate new window
+     * We created intent for this activity that contains information what we want to do ie. start Activity called DisplayPictureActivity
+     */
+    private void openPicture(){
         Intent intent = new Intent(this, DisplayPictureActivity.class);
         startActivity(intent);
     }
-    public void openVideo(){
+    private void openVideo(){
         Intent intent = new Intent(this, DisplayVideoActivity.class);
         startActivity(intent);
     }
-    public void openSearch(){
+    private void openSearch(){
         Intent intent = new Intent(this, DisplayWebPageActivity.class);
         startActivity(intent);
     }
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            this.finish();
-            return true;
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) { //Event that creates return button, in this case a button that will close the app since we are on first Main page and there is nowhere to return
+        if (item.getItemId() == android.R.id.home) { //If user clicks on button
+            this.finish(); //this activity will end, app will close
+            return true; //Returns value true, closes app
         }
         return super.onOptionsItemSelected(item);
     }

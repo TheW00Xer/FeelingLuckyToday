@@ -12,16 +12,16 @@ import java.util.Random;
 
 public class DisplayPictureActivity extends AppCompatActivity {
 
-    int[] images = {R.drawable.doge, R.drawable.monke, R.drawable.guine};
-    Random randomImage = new Random();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_picture);
 
-        ImageView image = findViewById(R.id.imageView);
-        image.setImageResource(images[randomImage.nextInt(images.length)]);
+        int[] images = {R.drawable.doge, R.drawable.monke, R.drawable.guine};
+        Random randomNumber = new Random();
+
+        ImageView image = findViewById(R.id.imageView); //Declaring View called image, finding it by it's Id
+        image.setImageResource(images[randomNumber.nextInt(images.length)]); //sets resource for
 
         // calling the action bar
         ActionBar actionBar = getSupportActionBar();
