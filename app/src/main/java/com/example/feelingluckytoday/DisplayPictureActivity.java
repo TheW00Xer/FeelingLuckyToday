@@ -30,7 +30,6 @@ public class DisplayPictureActivity extends AppCompatActivity {
         }
         Uri pictureUri = Uri.fromFile(randomPicture);
 
-
         //int[] images = {R.drawable.doge, R.drawable.monke, R.drawable.guine};
         //Random randomNumber = new Random(System.currentTimeMillis());
 
