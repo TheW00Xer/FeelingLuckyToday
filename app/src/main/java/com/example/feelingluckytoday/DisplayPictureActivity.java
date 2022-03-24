@@ -17,8 +17,9 @@ public class DisplayPictureActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_picture);
 
+
         int[] images = {R.drawable.doge, R.drawable.monke, R.drawable.guine};
-        Random randomNumber = new Random();
+        Random randomNumber = new Random(System.currentTimeMillis());
 
         ImageView image = findViewById(R.id.imageView); //Declaring View called image, finding it by it's Id
         image.setImageResource(images[randomNumber.nextInt(images.length)]); //sets resource for

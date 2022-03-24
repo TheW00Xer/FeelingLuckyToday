@@ -23,8 +23,8 @@ public class DisplayWebPageActivity extends AppCompatActivity {
                 "https://duckduckgo.com/"
         };
 
-        Random url = new Random();
-        String randomUrl = searchEngines[url.nextInt(searchEngines.length)];
+        Random randomNumber = new Random(System.currentTimeMillis());
+        String url = searchEngines[randomNumber.nextInt(searchEngines.length)];
 
         // calling the action bar
         ActionBar actionBar = getSupportActionBar();
@@ -34,7 +34,7 @@ public class DisplayWebPageActivity extends AppCompatActivity {
         }
 
         WebView browser = findViewById(R.id.searchPage);
-        browser.loadUrl(randomUrl);
+        browser.loadUrl(url);
 
     }
     @Override
