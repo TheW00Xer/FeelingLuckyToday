@@ -22,21 +22,24 @@ public class DisplayPictureActivity extends AppCompatActivity {
         setContentView(R.layout.activity_display_picture);
 
         File picturesDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+        //declaring directory where app obtains picture files
         File[] listFiles = picturesDirectory.listFiles();
-        Random r = new Random();
+        //getting list of all files in picture directory
+        Random randomNumber = new Random();
+        //generating random number
         File randomPicture = null;
+        //declaring file "randomPicture" that is required to be NonNull object
         if (listFiles != null) {
-            randomPicture = listFiles[r.nextInt(listFiles.length)];
+            randomPicture = listFiles[randomNumber.nextInt(listFiles.length)];
+            //using randomNumber to select a video from previously obtained list of files that don't have nul value
         }
         Uri pictureUri = Uri.fromFile(randomPicture);
+        //getting pat to selected random picture
 
-        //int[] images = {R.drawable.doge, R.drawable.monke, R.drawable.guine};
-        //Random randomNumber = new Random(System.currentTimeMillis());
-
-        ImageView image = findViewById(R.id.imageView); //Declaring View called image, finding it by it's Id
-        //image.setImageResource(images[randomNumber.nextInt(images.length)]); //sets resource for
-
+        ImageView image = findViewById(R.id.imageView);
+        //Declaring View called image, finding it by it's Id
         image.setImageURI(pictureUri);
+        //sets path for picture to be displayed in ImageView
 
         // calling the action bar
         ActionBar actionBar = getSupportActionBar();
