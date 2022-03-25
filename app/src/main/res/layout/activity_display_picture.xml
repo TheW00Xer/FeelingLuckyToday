@@ -5,16 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:contentDescription="@string/image_button"
-    tools:context=".DisplayPictureActivity">
+    tools:context=".DisplayPictureActivity"
+    tools:ignore="RedundantDescriptionCheck">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/image_button"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/divider_horizontal_bright" />
+        app:srcCompat="@android:drawable/divider_horizontal_bright"
+        tools:ignore="RedundantDescriptionCheck,ImageContrastCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,6 +13,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.File;
+import java.io.FilenameFilter;
 import java.util.Objects;
 import java.util.Random;
 
@@ -25,8 +26,16 @@ public class DisplayVideoActivity extends AppCompatActivity {
 
         File videosDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES);
         //declaring directory where app obtains video files
-        File[] listFiles = videosDirectory.listFiles();
+
+        File[] listFiles = videosDirectory.listFiles(new FilenameFilter() { //Creating list of files from videosDirectory that will match our Filename filter conditions
+            public boolean accept(File picturesDirectory, String name) {
+                return name.endsWith(".mp4"); //Returns only files ending with .mp4
+            }
+        });
+
+        //File[] listFiles = videosDirectory.listFiles();
         //getting list of all files in video directory
+
         Random randomNumber = new Random();
         //generating random number
         File randomVideo = Objects.requireNonNull(listFiles)[randomNumber.nextInt(listFiles.length)];
