@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -61,6 +62,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 openSearch();
+            }
+        });
+
+        Button testButton = findViewById(R.id.testButton);
+        testButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openTest();
             }
         });
     }
@@ -123,6 +132,10 @@ public class MainActivity extends AppCompatActivity {
     }
     private void openSearch(){
         Intent intent = new Intent(this, DisplayWebPageActivity.class);
+        startActivity(intent);
+    }
+    private void openTest(){
+        Intent intent = new Intent(this, TestButtonActivity.class);
         startActivity(intent);
     }
     @Override

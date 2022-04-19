@@ -61,26 +61,26 @@ public class DisplayVideoActivity extends AppCompatActivity {
                         videosDirectory = videosDirectory2;
                     }
                 }
-            } else if (videosDirectory2.isDirectory()) {
-                //assert videosDirectory != null;
-                String[] paths = videosDirectory2.list();
-                assert paths != null;
-                for (String path : paths) {
-                    if (path.toLowerCase().endsWith(".mp4")) {
-                        System.out.println(path);
-                        fileFound = true;
-                        videosDirectory = videosDirectory2;
+            } if (!fileFound) {
+                if (videosDirectory2.isDirectory()) {
+                    String[] paths = videosDirectory2.list();
+                    assert paths != null;
+                    for (String path : paths) {
+                        if (path.toLowerCase().endsWith(".mp4")) {
+                            System.out.println(path);
+                            fileFound = true;
+                            videosDirectory = videosDirectory2;
+                        }
                     }
-                }
-                if (!fileFound) {
-                    Toast.makeText(getApplicationContext(), "No files with .mp4 extension in 'Movies' directory.", Toast.LENGTH_SHORT).show();
-                    System.out.println("No files with .mp4 extension in 'Movies' directory");
+                    if (!fileFound) {
+                        Toast.makeText(getApplicationContext(), "No files with .mp4 extension in 'Movies' directory.", Toast.LENGTH_SHORT).show();
+                        System.out.println("No files with .mp4 extension in 'Movies' directory");
+                    }
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         try {
             if (fileFound) {
                 File[] listFiles = videosDirectory.listFiles(new FileFilter() {
@@ -118,7 +118,6 @@ public class DisplayVideoActivity extends AppCompatActivity {
         });
     }
 
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
@@ -144,5 +143,4 @@ public class DisplayVideoActivity extends AppCompatActivity {
                     ViewGroup.LayoutParams.WRAP_CONTENT));
         }
     }
-
 }
