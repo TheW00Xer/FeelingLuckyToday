@@ -1,7 +1,6 @@
 package com.example.feelingluckytoday;
 
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.MenuItem;
@@ -9,7 +8,6 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,7 +17,6 @@ import java.util.Random;
 
 public class DisplayPictureActivity extends AppCompatActivity {
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,16 +26,12 @@ public class DisplayPictureActivity extends AppCompatActivity {
         //Generating random number
         ImageView image = findViewById(R.id.imageView);
         //Declaring View called image, finding it by it's Id
-
-        //String[] okFileExtension = {".jpg",".png"};
-        //Declaring value of file name extensions we want the app to use
-
         File picturesDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
         //Declaring directory where app obtains picture files
 
         if (picturesDirectory.exists()) {
             File[] listFiles = picturesDirectory.listFiles(new FileFilter() {
-            //Creating list of files from picturesDirectory that will match our File filter conditions
+                //Creating list of files from picturesDirectory that will match our File filter conditions
                 @Override
                 public boolean accept(File file) {
                     if (file.isHidden()) {
@@ -47,16 +40,9 @@ public class DisplayPictureActivity extends AppCompatActivity {
                     if (file.isDirectory()) {
                         return false;
                     }
-                    if (file.getPath().endsWith(".jpg")) {
-                        return true;
-                    } else if (file.getPath().endsWith(".png")) {
-                        return true;
-                    } else {
-                        return false;
-                    }
+                    return file.getPath().endsWith(".jpg") || file.getPath().endsWith(".png");
                 }
             });
-
             if (listFiles.length>0) {
                 //Checking if length of list files is bigger than 0 (zero)
                 File randomPicture = (listFiles)[randomNumber.nextInt(listFiles.length)];
