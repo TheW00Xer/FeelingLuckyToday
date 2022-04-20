@@ -3,6 +3,7 @@ package com.example.feelingluckytoday;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -16,6 +17,8 @@ import java.io.FileFilter;
 import java.util.Random;
 
 public class DisplayPictureActivity extends AppCompatActivity {
+
+    private static final String TAG = "DisplayPictureActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,10 +56,11 @@ public class DisplayPictureActivity extends AppCompatActivity {
                 //Sets path for picture to be displayed in imageView
             } else {
                 Toast.makeText(getApplicationContext(), "No files with .jpg or .png extension in 'Pictures' directory.", Toast.LENGTH_SHORT).show();
-                System.out.println("No files with .jpg or .png extension in 'Pictures' directory.");
+                Log.i(TAG,"No files with .jpg or .png extension in 'Pictures' directory.");
             }
         } else {
             Toast.makeText(getApplicationContext(), "There is no 'Pictures' directory on this device.", Toast.LENGTH_SHORT).show();
+            Log.i(TAG,"There is no 'Pictures' directory on this device.");
         }
 
         ActionBar actionBar = getSupportActionBar();

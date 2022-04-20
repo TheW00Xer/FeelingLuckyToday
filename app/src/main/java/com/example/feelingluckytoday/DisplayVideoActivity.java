@@ -5,6 +5,7 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -24,6 +25,7 @@ import java.util.Objects;
 import java.util.Random;
 
 public class DisplayVideoActivity extends AppCompatActivity {
+    private static final String TAG = "DisplayVideoActivity";
     //Following two files need to be declared here in order to be accessible by all functions
     File videosDirectory;
     //Declaring final directory that will be assigned a path from either main or secondary directory after passing filters
@@ -46,10 +48,6 @@ public class DisplayVideoActivity extends AppCompatActivity {
 
         try {
             if (videosDirectory1.isDirectory()) {
-                if (!videosDirectory1.isDirectory()) {
-                    Toast.makeText(getApplicationContext(), "'Lucky' directory doesn't exist on this device.", Toast.LENGTH_SHORT).show();
-                    System.out.println("'Lucky' directory doesn't exist on this device.");
-                }
                 videosDirectory = videosDirectory1;
                 fileChecker();
                 //Calling function to check files with defined filter
@@ -59,9 +57,13 @@ public class DisplayVideoActivity extends AppCompatActivity {
                     //Calling function to pick random video from list of files
                 } else {
                     Toast.makeText(getApplicationContext(), "No files with .mp4 extension in 'Lucky' directory.", Toast.LENGTH_SHORT).show();
-                    System.out.println("No files with .mp4 extension in 'Lucky' directory.");
+                    Log.i(TAG, "No files with .mp4 extension in 'Lucky' directory.");
                 }
-            } if (!videosDirectory1.isDirectory() || listFiles.length <= 0) {
+            } else {
+                Toast.makeText(getApplicationContext(), "'Lucky' directory doesn't exist on this device.", Toast.LENGTH_SHORT).show();
+                Log.i(TAG,"'Lucky' directory doesn't exist on this device.");
+            }
+            if (!videosDirectory1.isDirectory() || listFiles.length <= 0) {
                 if (videosDirectory2.isDirectory()) {
                     videosDirectory = videosDirectory2;
                     fileChecker();
@@ -69,11 +71,11 @@ public class DisplayVideoActivity extends AppCompatActivity {
                         videoPicker();
                     } else {
                         Toast.makeText(getApplicationContext(), "No files with .mp4 extension in 'Movies' directory.", Toast.LENGTH_SHORT).show();
-                        System.out.println("No files with .mp4 extension in 'Movies' directory.");
+                        Log.i(TAG,"No files with .mp4 extension in 'Movies' directory.");
                     }
                 } else {
                     Toast.makeText(getApplicationContext(), "'Movies' directory doesn't exist on this device.", Toast.LENGTH_SHORT).show();
-                    System.out.println("'Movies' directory doesn't exist on this device.");
+                    Log.i(TAG,"'Movies' directory doesn't exist on this device.");
                 }
             }
         } catch (Exception e) {
