@@ -12,13 +12,10 @@ import android.widget.LinearLayout;
 import android.widget.MediaController;
 import android.widget.Toast;
 import android.widget.VideoView;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-
 import org.jetbrains.annotations.NotNull;
-
 import java.io.File;
 import java.io.FileFilter;
 import java.util.Objects;
