@@ -6,41 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="295dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="60dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginTop="100dp"
+        android:contentDescription="@string/image_button"
         app:layout_constraintBottom_toTopOf="@+id/videoButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:srcCompat="@android:drawable/ic_menu_gallery" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_gallery"
+        tools:ignore="SpeakableTextPresentCheck,RedundantDescriptionCheck,DuplicateSpeakableTextCheck" />
 
     <ImageButton
         android:id="@+id/videoButton"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginTop="100dp"
+        android:contentDescription="@string/image_button"
         app:layout_constraintBottom_toTopOf="@+id/searchButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton"
-        app:srcCompat="@android:drawable/ic_menu_slideshow" />
+        app:srcCompat="@android:drawable/ic_menu_slideshow"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,RedundantDescriptionCheck,ImageContrastCheck" />
 
     <ImageButton
         android:id="@+id/searchButton"
@@ -48,11 +40,23 @@
         android:layout_height="80dp"
         android:layout_marginTop="100dp"
         android:layout_marginBottom="172dp"
+        android:contentDescription="@string/image_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/videoButton"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@android:drawable/ic_menu_search" />
+        app:srcCompat="@android:drawable/ic_menu_search"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,RedundantDescriptionCheck" />
+
+    <Button
+        android:id="@+id/testButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TestButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Feeling Lucky Today</string>
+    <string name="image_button">button</string>
 </resources>

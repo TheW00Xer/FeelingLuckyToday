@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.feelingluckytoday">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.feelingluckytoday"
+    android:installLocation="preferExternal">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -10,17 +18,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FeelingLuckyToday">
         <activity
-            android:name=".DisplayWebPageActivity"
+            android:name=".TestButtonActivity"
             android:exported="false" />
+        <activity
+            android:name=".DisplayWebPageActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="false"
+            android:label="Random web search engine" />
         <activity
             android:name=".DisplayVideoActivity"
-            android:exported="false" />
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="false"
+            android:label="Random video viewer" />
         <activity
             android:name=".DisplayPictureActivity"
-            android:exported="false" />
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="false"
+            android:label="Random picture viewer" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="nosensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
